@@ -56,3 +56,8 @@ func baseSixteen(baseTen: Int) -> String {
     
     return result
 }
+
+let hex = String(10600, radix: 16)
+baseSixteen(10600)
+let testHex2 = String(500, radix: 16)
+baseSixteen(500)
