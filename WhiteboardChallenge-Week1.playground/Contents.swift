@@ -19,3 +19,40 @@ func isPalindrome (phrase: [String]) -> [String] {
 
 let palindromeTestArray = ["mom", "hannah", "nope", "still no", "racecar"]
 let palindromes = isPalindrome(palindromeTestArray)
+
+
+//Whiteboard challenge #2: Implement base 16 conversion functions: Meaning convert from base 10 to base 16
+
+var remainderConvert: [Int: String] = [
+    10 : "A",
+    11 : "B",
+    12 : "C",
+    13 : "D",
+    14 : "E",
+    15 : "F"
+]
+
+func baseSixteen(baseTen: Int) -> String {
+    var result = String()
+    var wholeDivisor = Int(baseTen/16)
+    let remainder = baseTen % 16
+    
+    while wholeDivisor > 0 {
+        let remainder = wholeDivisor % 16
+        
+        wholeDivisor = Int(wholeDivisor/16)
+        if let converted = remainderConvert[remainder] {
+            result.insert(Character(converted), atIndex: result.startIndex)
+        } else {
+            result.insert(Character("\(remainder)"), atIndex: result.startIndex)
+        }
+    }
+    
+    if let converted = remainderConvert[remainder] {
+        result.append(Character(converted))
+    } else {
+        result.append(Character("\(remainder)"))
+    }
+    
+    return result
+}
