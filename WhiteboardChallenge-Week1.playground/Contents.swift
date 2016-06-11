@@ -17,3 +17,5 @@ func isPalindrome (phrase: [String]) -> [String] {
     return palindrome
 }
 
+let palindromeTestArray = ["mom", "hannah", "nope", "still no", "racecar"]
+let palindromes = isPalindrome(palindromeTestArray)
