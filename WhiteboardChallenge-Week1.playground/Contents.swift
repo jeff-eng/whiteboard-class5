@@ -61,3 +61,41 @@ let hex = String(10600, radix: 16)
 baseSixteen(10600)
 let testHex2 = String(500, radix: 16)
 baseSixteen(500)
+
+
+//Whiteboard challenge #3: Convert Roman Numerals to base 10
+
+var romanNumerals: [String : Int] = [
+    "I" : 1,
+    "V" : 5,
+    "X" : 10,
+    "L" : 50,
+    "C" : 100,
+    "D" : 500,
+    "M" : 1000
+]
+let test = romanNumerals["I"]
+
+func romanToBaseTen (romanNumber: String) -> Int? {
+    var convertedNumerals = [Int]()
+    for numeral in romanNumber.characters {
+        if let number = romanNumerals[String(numeral)]{
+            convertedNumerals.append(number)
+        } else {
+            return nil
+        }
+    }
+    
+    let results = convertedNumerals.reduce(0) {
+        (num1, num2)-> Int in
+        if num2 > num1 {
+            return num2 - num1
+        } else {
+            return num1 + num2
+        }
+    }
+    return results
+}
+
+romanToBaseTen("CMV")
+
